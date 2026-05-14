@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a1a1a" />
+  <meta name="description" content="Listen to PDFs with chapter navigation. Local-first, no upload." />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
+  <link rel="apple-touch-icon" href="./icon-192.png" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>PDF Talker</title>
+</head>
+<body>
+  <header class="app-header">
+    <h1>PDF Talker</h1>
+    <div class="header-actions">
+      <button id="open-file-btn" class="btn-primary" type="button">Open PDF</button>
+      <input type="file" id="pdf-file" accept="application/pdf" hidden />
+    </div>
+  </header>
+
+  <main class="app-main">
+    <aside class="sidebar" id="sidebar" aria-label="Table of contents">
+      <div class="sidebar-header">
+        <h2>Contents</h2>
+        <button id="close-sidebar" class="btn-icon" type="button" aria-label="Close contents">✕</button>
+      </div>
+      <div class="outline-tree" id="outline-tree">
+        <p class="empty-state">No PDF loaded.</p>
+      </div>
+    </aside>
+
+    <section class="reader">
+      <div class="reader-empty" id="reader-empty">
+        <h2>Listen to PDFs the way they should work.</h2>
+        <p>Local-first. Resumes where you left off. Lock-screen controls. Click any sentence to start reading from there.</p>
+        <button id="open-file-btn-2" class="btn-primary" type="button">Open a PDF</button>
+        <p class="hint">Files stay on your device. Nothing uploaded.</p>
+      </div>
+
+      <article class="reader-content" id="reader-content" hidden>
+        <div class="reader-meta">
+          <button id="toggle-sidebar" class="btn-icon" type="button" aria-label="Show contents">☰</button>
+          <span class="doc-title" id="doc-title"></span>
+          <span class="page-indicator" id="page-indicator"></span>
+        </div>
+        <div class="text-view" id="text-view"></div>
+      </article>
+
+      <div class="reader-controls" id="reader-controls" hidden>
+        <div class="control-row primary-controls">
+          <button id="prev-page-btn" class="btn-icon" type="button" aria-label="Previous page">‹</button>
+          <button id="play-pause-btn" class="btn-play" type="button" aria-label="Play">
+            <span class="play-icon">▶</span>
+            <span class="pause-icon" hidden>❚❚</span>
+          </button>
+          <button id="next-page-btn" class="btn-icon" type="button" aria-label="Next page">›</button>
+        </div>
+        <div class="control-row settings-controls">
+          <label class="control-label">
+            <span>Voice</span>
+            <select id="voice-select"></select>
+          </label>
+          <label class="control-label">
+            <span>Rate <span id="rate-display">1.0×</span></span>
+            <input type="range" id="rate-slider" min="0.5" max="2" step="0.1" value="1" />
+          </label>
+          <label class="control-label checkbox-label">
+            <input type="checkbox" id="skip-citations" checked />
+            <span>Skip citations</span>
+          </label>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="resume-banner" id="resume-banner" hidden>
+    <span id="resume-text"></span>
+    <div class="resume-actions">
+      <button id="resume-yes" class="btn-small" type="button">Resume</button>
+      <button id="resume-no" class="btn-small btn-secondary" type="button">Start over</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "pdf-talker",
+  "version": "1.0.0",
+  "description": "PWA for listening to PDFs with chapter navigation, sentence-level seeking, resume, and Android lock-screen controls.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "http-server -p 3000 -c-1",
+    "deploy": "pm2 start ecosystem.config.cjs && pm2 save"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}

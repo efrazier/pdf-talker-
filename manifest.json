@@ -1,0 +1,26 @@
+{
+  "name": "PDF Talker",
+  "short_name": "PDF Talker",
+  "description": "Listen to PDFs with proper chapter navigation. Local-first.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#fafafa",
+  "theme_color": "#1a1a1a",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["books", "education", "productivity"]
+}
